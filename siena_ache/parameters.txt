@@ -1,0 +1,20 @@
+Search Options:
+
+
+
+Alignment options:
+Minimum fragment length: 10
+Flexibility sensitivity: 0.6
+Maximum fragment distance: 4
+
+
+Filter Options:
+
+Maximum backbone RMSD: 1
+Minimum Site Identity: 1
+Holo structures only: true
+
+
+Reduction Procedures:
+
+Remove sites with ligand duplicates: true
