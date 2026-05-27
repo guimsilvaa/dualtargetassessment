@@ -4,17 +4,17 @@
 
 Higher values generally indicate:
 
-* more exposed cavities,
-* shallower grooves,
-* irregular surfaces.
+* more exposed cavities
+* shallower grooves
+* irregular surfaces
 
 Lower values generally indicate:
 
-* more enclosed pockets,
-* compact orthosteric sites.
-
-SVR = \frac{Surface\ Area}{Volume}
-
+* more enclosed pockets
+* compact orthosteric sites
+```text
+SVR = Surface Area / Volume
+```
 ---
 
 ## Compactness
@@ -23,16 +23,16 @@ Measures cavity compactness/buriedness.
 
 Higher values:
 
-* more compact pockets,
-* enclosed orthosteric cavities.
+* more compact pockets
+* enclosed orthosteric cavities
 
 Lower values:
 
-* elongated channels,
-* solvent-exposed grooves.
-
-Compactness = \frac{Volume}{Surface\ Area}
-
+* elongated channels
+* solvent-exposed grooves
+```text
+Compactness = Volume / Surface Area
+```
 ---
 
 ## Sphericity
@@ -41,15 +41,15 @@ Approximates cavity globularity.
 
 Values closer to 1:
 
-* more spherical cavities.
+* more spherical cavities
 
 Lower values:
 
-* elongated tunnels,
-* irregular binding grooves.
-
-Sphericity = \frac{\pi^{1/3}(6V)^{2/3}}{A}
-
+* elongated tunnels
+* irregular binding grooves
+```text
+Sphericity = π^(1/3) (6V)^(2/3) / A
+```
 ---
 
 # Residue Composition Metrics
@@ -80,9 +80,9 @@ Fraction of aromatic cavity residues:
 
 This descriptor is particularly informative for:
 
-* aromatic stacking environments,
-* ACHE-like aromatic gorges,
-* CNS-target orthosteric sites.
+* aromatic stacking environments
+* ACHE-like aromatic gorges
+* CNS-target orthosteric sites
 
 ---
 
@@ -98,6 +98,6 @@ Fraction of charged residues:
 
 Useful for:
 
-* electrostatic characterization,
-* ATP-binding pockets,
-* polar recognition environments.
+* electrostatic characterization
+* ATP-binding pockets
+* polar recognition environments
