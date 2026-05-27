@@ -4,29 +4,26 @@ ProtAssess is a python tool designed for **ensemble cavity analysis and comparis
 
 It was developed to compare and analyze:
 
-* ensembles of holo protein structures from distinct target families,
-* apo vs holo conformational changes,
-* pocket similarities/differences,
-* cavity physicochemical profiles,
+* ensembles of holo protein structures from distinct target families
+* apo vs holo conformational changes
+* pocket similarities/differences
+* cavity physicochemical profiles
 
-ProtAssess includes:
+ProtAssess automatically performs:
 
-* automatic protein preprocessing,
-* ligand-guided cavity selection,
-* cavity descriptor extraction,
-* statistical comparison,
-* multivariate clustering,
-* and cavity visualization generation.
+- Protein cleaning and preprocessing
+- Cavity detection
+- Ligand-proximal cavity selection
+- Cavity descriptor extraction
+- Statistical comparison
+- Multivariate analysis
+- Cavity visualization generation
 
 The workflow is based primarily on the `pyKVFinder` cavity detection engine.
 
 ---
 
-# Workflow
-
-ProtAssess performs the following steps automatically:
-
-## 1. Protein structure cleaning
+## 1. Protein cleaning
 
 Each structure is automatically cleaned using BioPython:
 
@@ -39,10 +36,10 @@ Each structure is automatically cleaned using BioPython:
 
 ### Ligand-proximal chain/monomer selection
 
-* reads a reference ligand SDF (within each target folder),
-* computes the ligand centroid,
-* identifies the protein chain closest to the ligand,
-* keeps only that chain.
+- reads a reference ligand SDF (within each target folder)
+- computes the ligand centroid
+- identifies the protein chain closest to the ligand
+- keeps only that chain
 
 ---
 
@@ -50,23 +47,23 @@ Each structure is automatically cleaned using BioPython:
 
 Cavities are detected using `pyKVFinder` and computing:
 
-* cavity volume,
-* depth,
-* hydropathy,
-* surface area,
-* cavity residues,
-* voxelized cavity geometries.
+* cavity volume
+* depth
+* hydropathy
+* surface area
+* cavity residues
+* voxelized cavity geometries
 
 ---
 
 ## 3. Ligand-proximal cavity selection
 
-Multiple cavities are usually detected per structure. ProtAssess automatically:
+`pyKVFinder` detects multiple cavities per structure. ProtAssess automatically:
 
-* reconstructs cavity voxel coordinates,
-* computes cavity centroids,
-* measures distances to the ligand centroid,
-* selects the cavity closest to the ligand.
+* reconstructs cavity voxel coordinates
+* computes cavity centroids
+* measures distances to the ligand centroid
+* selects the cavity closest to the ligand
 
 ---
 
@@ -93,7 +90,7 @@ Detailed descriptor definitions and formulas are available in: `descriptors_info
 
 ---
 
-# Statistical analysis
+## 5. Statistical analysis
 
 * mean and standard deviation,
 * descriptor distribution through violin plots,
@@ -102,7 +99,7 @@ Detailed descriptor definitions and formulas are available in: `descriptors_info
 
 ---
 
-# Multivariate Analysis
+## 6. Multivariate Analysis
 
 * hierarchical clustering dendrograms (separate structures according to overall cavity descriptor similarity),
 * PCA (projects multidimensional descriptor space into two dimensions: scatter plot, feature loadings and explained variance),
@@ -112,7 +109,7 @@ Detailed descriptor definitions and formulas are available in: `descriptors_info
 
 ---
 
-# Cavity visualization
+## 7. Cavity visualization
 
 ProtAssess exports cavity voxels as pseudoatom PDB files.
 
@@ -203,7 +200,7 @@ python run_protassess.py
 ```
 ProtAssess automatically detects the pair of folders beginning with *target_* and processes them as independent ensembles.
 
-* please note it only supports 2 target folders per run!
+! please note it only supports 2 target folders per run!
 
 ---
 
