@@ -1,7 +1,7 @@
 # Descriptor Definitions
 
 ## Surface-to-Volume Ratio (SVR)
-
+As importantly cited in Volkamer, A., Kuhn, D., Rippmann, F., & Rarey, M. (2012). DoGSiteScorer: a web server for automatic binding site prediction, analysis and druggability assessment. Bioinformatics, 28(15), 2074-2075. 
 Higher values generally indicate:
 
 * more exposed cavities
@@ -15,7 +15,6 @@ Lower values generally indicate:
 ```text
 SVR = Surface Area / Volume
 ```
-As importantly cited in Volkamer, A., Kuhn, D., Rippmann, F., & Rarey, M. (2012). DoGSiteScorer: a web server for automatic binding site prediction, analysis and druggability assessment. Bioinformatics, 28(15), 2074-2075. 
 ---
 
 ## Compactness
