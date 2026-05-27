@@ -15,11 +15,12 @@ Lower values generally indicate:
 ```text
 SVR = Surface Area / Volume
 ```
+As importantly cited in Volkamer, A., Kuhn, D., Rippmann, F., & Rarey, M. (2012). DoGSiteScorer: a web server for automatic binding site prediction, analysis and druggability assessment. Bioinformatics, 28(15), 2074-2075. 
 ---
 
 ## Compactness
 
-Measures cavity compactness/buriedness.
+Measures cavity compactness/buriedness. As referenced in: Hajduk, P. J., Huth, J. R., & Fesik, S. W. (2005). Druggability indices for protein targets derived from NMR-based screening data. Journal of medicinal chemistry, 48(7), 2518-2525.
 
 Higher values:
 
@@ -37,7 +38,7 @@ Compactness = Volume / Surface Area
 
 ## Sphericity
 
-Approximates cavity globularity.
+Approximates cavity globularity, as importantly referenced in: Coleman, R. G., & Sharp, K. A. (2009). Shape and evolution of thermostable protein structure. Proteins: Structure, Function, and Bioinformatics, 78(2), 420–433.
 
 Values closer to 1:
 
