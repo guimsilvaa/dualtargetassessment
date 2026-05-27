@@ -1,8 +1,6 @@
 # ProtAssess
 
-ProtAssess is a python tool designed for **ensemble cavity analysis and comparison of protein binding pockets** using experimental protein structures. The workflow is based primarily on the `pyKVFinder` cavity detection engine.
-
-It was developed to compare and analyze:
+ProtAssess is a python tool designed for **ensemble cavity analysis and comparison of protein binding pockets** using experimental protein structures. It makes the very good use of `pyKVFinder` cavity detection engine and it was developed to compare and analyze:
 
 * ensembles of holo protein structures from distinct target families
 * apo vs holo conformational changes
@@ -25,19 +23,19 @@ ProtAssess automatically performs:
 
 Each structure is automatically cleaned using BioPython:
 
-* removal of waters,
-* removal of ions/metals,
-* removal of co-crystallized ligands,
-* removal of alternate conformers,
-* removal of hydrogens,
-* extraction of a single biologically relevant monomer chain.
+* removal of waters
+* removal of ions/metals
+* removal of co-crystallized ligands
+* removal of alternate conformers
+* removal of hydrogens
+* extraction of a single biologically relevant monomer chain
 
 ### Ligand-proximal chain/monomer selection
 
-- reads a reference ligand SDF (within each target folder)
-- computes the ligand centroid
-- identifies the protein chain closest to the ligand
-- keeps only that chain
+> reads a reference ligand SDF (within each target folder)
+> computes the ligand centroid
+> identifies the protein chain closest to the ligand
+> keeps only that chain
 
 ---
 
@@ -90,20 +88,20 @@ Detailed descriptor definitions and formulas are available in: `descriptors_info
 
 ## 5. Statistical analysis
 
-* mean and standard deviation,
-* descriptor distribution through violin plots,
-* performs Welch t-tests p-values (Welch’s t-test is used instead of the standard Student t-test because it does not assume equal variances or equal sample sizes between ensembles, making it more appropriate for comparative structural datasets derived from heterogeneous protein ensembles),
-* effect size ranking using Cohen’s d statistic (Cohen’s d effect size quantifies the magnitude of separation between target ensembles, enabling ranking descriptors according to their discriminatory power).
+* mean and standard deviation
+* descriptor distribution through violin plots
+* performs Welch t-tests p-values (Welch’s t-test is used instead of the standard Student t-test because it does not assume equal variances or equal sample sizes between ensembles, making it more appropriate for comparative structural datasets derived from heterogeneous protein ensembles)
+* effect size ranking using Cohen’s d statistic (Cohen’s d effect size quantifies the magnitude of separation between target ensembles, enabling ranking descriptors according to their discriminatory power)
 
 ---
 
 ## 6. Multivariate Analysis
 
-* hierarchical clustering dendrograms (separate structures according to overall cavity descriptor similarity),
-* PCA (projects multidimensional descriptor space into two dimensions: scatter plot, feature loadings and explained variance),
-* descriptor heatmaps (generated using z-score normalized descriptors and hierarchical row clustering),
-* radar plots (summarize the mean z-score normalized descriptor profiles for each target ensemble),
-* descriptor importance (ranks descriptors according to absolute Cohen’s d effect size).
+* hierarchical clustering dendrograms (separate structures according to overall cavity descriptor similarity)
+* PCA (projects multidimensional descriptor space into two dimensions: scatter plot, feature loadings and explained variance)
+* descriptor heatmaps (generated using z-score normalized descriptors and hierarchical row clustering)
+* radar plots (summarize the mean z-score normalized descriptor profiles for each target ensemble)
+* descriptor importance (ranks descriptors according to absolute Cohen’s d effect size)
 
 ---
 
@@ -137,8 +135,8 @@ protassess/
 
 Each target folder:
 
-* must contain a ensemble of aligned PDB structures,
-* must contain exactly one reference ligand SDF.
+* must contain a ensemble of aligned PDB structures
+* must contain exactly one reference ligand SDF
 
 ---
 
@@ -146,13 +144,13 @@ Each target folder:
 
 Each run automatically generates a folder *YYMMDD_target1_target2_protassess-out/* containing:
 
-* cleaned structures,
-* cavity visualization files,
+* cleaned structures
+* cavity visualization files
 * `results_summary.csv`
-* violin plots for each descriptor,
-* descriptor tables/importances,
-* clustering plots (PCA, dendrogram, heatmap, radarplot),
-* complete log file.
+* violin plots for each descriptor
+* descriptor tables/importances
+* clustering plots (PCA, dendrogram, heatmap, radarplot)
+* complete log file
 
 ---
 
@@ -170,11 +168,7 @@ conda activate protassess
 ```bash
 conda create -n protassess python=3.10
 conda activate protassess
-
-conda install -c conda-forge \
-numpy pandas matplotlib scipy scikit-learn \
-biopython tqdm rdkit
-
+conda install -c conda-forge numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit
 pip install pyKVFinder
 ```
 
@@ -183,9 +177,7 @@ pip install pyKVFinder
 ```bash
 uv venv protassess
 source protassess/bin/activate
-uv pip install \
-numpy pandas matplotlib scipy scikit-learn \
-biopython tqdm rdkit pyKVFinder
+uv pip install numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit pyKVFinder
 ```
 
 ---
