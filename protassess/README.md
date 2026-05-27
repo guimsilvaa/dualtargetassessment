@@ -1,6 +1,6 @@
 # ProtAssess
 
-ProtAssess is a python tool designed for **ensemble cavity analysis and comparison of protein binding pockets** using experimental protein structures.
+ProtAssess is a python tool designed for **ensemble cavity analysis and comparison of protein binding pockets** using experimental protein structures. The workflow is based primarily on the `pyKVFinder` cavity detection engine.
 
 It was developed to compare and analyze:
 
@@ -11,15 +11,13 @@ It was developed to compare and analyze:
 
 ProtAssess automatically performs:
 
-- Protein cleaning and preprocessing
-- Cavity detection
-- Ligand-proximal cavity selection
-- Cavity descriptor extraction
-- Statistical comparison
-- Multivariate analysis
-- Cavity visualization generation
-
-The workflow is based primarily on the `pyKVFinder` cavity detection engine.
+1. Protein cleaning and preprocessing
+2. Cavity detection
+3. Ligand-proximal cavity selection
+4. Cavity descriptor extraction
+5. Statistical comparison
+6. Multivariate analysis
+7. Cavity visualization generation
 
 ---
 
