@@ -163,15 +163,16 @@ Each run automatically generates a folder *YYMMDD_target1_target2_protassess-out
 
 # Installation
 
-##Option 1 environment:
+## Option 1 environment:
 
 ```bash
 conda env create -f environment.yml
 conda activate protassess
 ```
 
-##Option 2 manual conda install:
+## Option 2 manual conda install:
 
+```bash
 conda create -n protassess python=3.10
 conda activate protassess
 
@@ -180,38 +181,36 @@ numpy pandas matplotlib scipy scikit-learn \
 biopython tqdm rdkit
 
 pip install pyKVFinder
+```
 
-##Option 3 uv:
+## Option 3 uv:
 
+```bash
 uv venv protassess
 source protassess/bin/activate
 uv pip install \
 numpy pandas matplotlib scipy scikit-learn \
 biopython tqdm rdkit pyKVFinder
-
+```
 
 ---
 
 # Running ProtAssess
 
 Inside the project directory:
-
+```bash
 python run_protassess.py
+```
+ProtAssess automatically detects the pair of folders beginning with *target_* and processes them as independent ensembles.
 
-ProtAssess automatically detects folders beginning with:
-
-target*
-
-and processes them as independent ensembles.
+* please note it only supports 2 target folders per run!
 
 ---
 
 # Citation
 
-If you use ProtAssess in academic work, please cite:
+If you use ProtAssess, please cite:
 
 * pyKVFinder
 
-and reference the ProtAssess repository.
-
----
+and reference this ProtAssess repository.
