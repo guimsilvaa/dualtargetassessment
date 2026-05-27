@@ -7,7 +7,7 @@ ProtAssess is a python tool designed for **ensemble cavity analysis and comparis
 * pocket similarities/differences
 * cavity physicochemical profiles
 
-ProtAssess automatically performs:
+ProtAssess automatically performs the following steps:
 
 1. Protein cleaning and preprocessing
 2. Cavity detection
@@ -17,99 +17,50 @@ ProtAssess automatically performs:
 6. Multivariate analysis
 7. Cavity visualization generation
 
----
-
-## 1. Protein cleaning
-
-Each structure is automatically cleaned using BioPython:
-
-* removal of waters
-* removal of ions/metals
-* removal of co-crystallized ligands
-* removal of alternate conformers
-* removal of hydrogens
-* extraction of a single biologically relevant monomer chain
-
-### Ligand-proximal chain/monomer selection
-
-~ reads a reference ligand SDF (within each target folder)
-~ computes the ligand centroid
-~ identifies the protein chain closest to the ligand
-~ keeps only that chain
+See more details about each step on [steps_details.md](steps_details.md) and about descriptors on [descriptors_details.md](descriptors_details.md)
 
 ---
 
-## 2. Cavity detection
+# Installation
 
-Cavities are detected using `pyKVFinder` and computing:
+## Option 1 environment:
 
-* cavity volume
-* depth
-* hydropathy
-* surface area
-* cavity residues
-* voxelized cavity geometries
+```bash
+conda env create -f environment.yml
+conda activate protassess
+```
 
----
+## Option 2 manual conda install:
 
-## 3. Ligand-proximal cavity selection
+```bash
+conda create -n protassess python=3.10
+conda activate protassess
+conda install -c conda-forge numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit
+pip install pyKVFinder
+```
 
-`pyKVFinder` detects multiple cavities per structure. ProtAssess automatically:
+## Option 3 uv:
 
-* reconstructs cavity voxel coordinates
-* computes cavity centroids
-* measures distances to the ligand centroid
-* selects the cavity closest to the ligand
-
----
-
-## 4. Descriptor extraction
-
-ProtAssess extracts geometric, topological and physicochemical cavity descriptors.
-
-| Descriptor           | Meaning                          |
-| -------------------- | -------------------------------- |
-| volume               | cavity volume (Å³)               |
-| surface_area         | cavity surface area              |
-| avg_depth            | average cavity depth             |
-| max_depth            | maximum cavity depth             |
-| avg_hydropathy       | average cavity hydropathy        |
-| n_interface_residues | number of cavity-lining residues |
-| surface_volume_ratio | cavity exposure metric           |
-| compactness          | buriedness/compactness metric    |
-| sphericity           | globularity metric               |
-| hydrophobic_fraction | fraction of hydrophobic residues |
-| aromatic_fraction    | fraction of aromatic residues    |
-| charged_fraction     | fraction of charged residues     |
-
-Detailed descriptor definitions and formulas are available in: `descriptors_info.md`
+```bash
+uv venv protassess
+source protassess/bin/activate
+uv pip install numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit pyKVFinder
+```
 
 ---
 
-## 5. Statistical analysis
+# Running ProtAssess
 
-* mean and standard deviation
-* descriptor distribution through violin plots
-* performs Welch t-tests p-values (Welch’s t-test is used instead of the standard Student t-test because it does not assume equal variances or equal sample sizes between ensembles, making it more appropriate for comparative structural datasets derived from heterogeneous protein ensembles)
-* effect size ranking using Cohen’s d statistic (Cohen’s d effect size quantifies the magnitude of separation between target ensembles, enabling ranking descriptors according to their discriminatory power)
+Inside the project directory:
+```bash
+python run_protassess.py
+```
+ProtAssess automatically detects the pair of folders beginning with *target_* and processes them as independent ensembles.
 
----
-
-## 6. Multivariate Analysis
-
-* hierarchical clustering dendrograms (separate structures according to overall cavity descriptor similarity)
-* PCA (projects multidimensional descriptor space into two dimensions: scatter plot, feature loadings and explained variance)
-* descriptor heatmaps (generated using z-score normalized descriptors and hierarchical row clustering)
-* radar plots (summarize the mean z-score normalized descriptor profiles for each target ensemble)
-* descriptor importance (ranks descriptors according to absolute Cohen’s d effect size)
+! please note it only supports 2 target folders per run!
 
 ---
 
-## 7. Cavity visualization
-
-ProtAssess exports cavity voxels as pseudoatom PDB files.
-
----
 
 # Folder Organization
 
@@ -151,46 +102,6 @@ Each run automatically generates a folder *YYMMDD_target1_target2_protassess-out
 * descriptor tables/importances
 * clustering plots (PCA, dendrogram, heatmap, radarplot)
 * complete log file
-
----
-
-# Installation
-
-## Option 1 environment:
-
-```bash
-conda env create -f environment.yml
-conda activate protassess
-```
-
-## Option 2 manual conda install:
-
-```bash
-conda create -n protassess python=3.10
-conda activate protassess
-conda install -c conda-forge numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit
-pip install pyKVFinder
-```
-
-## Option 3 uv:
-
-```bash
-uv venv protassess
-source protassess/bin/activate
-uv pip install numpy pandas matplotlib scipy scikit-learn biopython tqdm rdkit pyKVFinder
-```
-
----
-
-# Running ProtAssess
-
-Inside the project directory:
-```bash
-python run_protassess.py
-```
-ProtAssess automatically detects the pair of folders beginning with *target_* and processes them as independent ensembles.
-
-! please note it only supports 2 target folders per run!
 
 ---
 
