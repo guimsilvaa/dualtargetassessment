@@ -61,7 +61,7 @@ ProtAssess extracts geometric, topological and physicochemical cavity descriptor
 | aromatic_fraction    | fraction of aromatic residues    |
 | charged_fraction     | fraction of charged residues     |
 
-Detailed descriptor definitions and formulas are available in: `descriptors_info.md`
+Detailed descriptor definitions and formulas are available in [DESCRIPTORS DETAILS](README_descriptors.md)
 
 ---
 
