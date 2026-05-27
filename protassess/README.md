@@ -17,7 +17,7 @@ ProtAssess automatically performs the following steps:
 6. Multivariate analysis
 7. Cavity visualization generation
 
-See more details about each step on [steps_details.md](steps_details.md) and about descriptors on [descriptors_details.md](descriptors_details.md)
+See more details about each step on [STEPS DETAILS](README_steps.md)
 
 ---
 
