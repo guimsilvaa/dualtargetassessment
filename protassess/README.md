@@ -109,6 +109,6 @@ Each run automatically generates a folder *YYMMDD_target1_target2_protassess-out
 
 If you use ProtAssess, please cite:
 
-* pyKVFinder
+* [pyKVFinder](https://github.com/LBC-LNBio/pyKVFinder)
 
 and reference this ProtAssess repository.
