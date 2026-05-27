@@ -32,10 +32,10 @@ Each structure is automatically cleaned using BioPython:
 
 ### Ligand-proximal chain/monomer selection
 
-@ reads a reference ligand SDF (within each target folder)
-@ computes the ligand centroid
-@ identifies the protein chain closest to the ligand
-@ keeps only that chain
+~ reads a reference ligand SDF (within each target folder)
+~ computes the ligand centroid
+~ identifies the protein chain closest to the ligand
+~ keeps only that chain
 
 ---
 
