@@ -39,10 +39,10 @@ Each structure is automatically cleaned using BioPython:
 
 ### Ligand-proximal chain/monomer selection
 
-a. reads a reference ligand SDF (within each target folder),
-b. computes the ligand centroid,
-c. identifies the protein chain closest to the ligand,
-d. keeps only that chain.
+* reads a reference ligand SDF (within each target folder),
+* computes the ligand centroid,
+* identifies the protein chain closest to the ligand,
+* keeps only that chain.
 
 ---
 
@@ -63,10 +63,10 @@ Cavities are detected using `pyKVFinder` and computing:
 
 Multiple cavities are usually detected per structure. ProtAssess automatically:
 
-a. reconstructs cavity voxel coordinates,
-b. computes cavity centroids,
-c. measures distances to the ligand centroid,
-d. selects the cavity closest to the ligand.
+* reconstructs cavity voxel coordinates,
+* computes cavity centroids,
+* measures distances to the ligand centroid,
+* selects the cavity closest to the ligand.
 
 ---
 
@@ -97,33 +97,18 @@ Detailed descriptor definitions and formulas are available in: `descriptors_info
 
 * mean and standard deviation,
 * descriptor distribution through violin plots,
-* performs Welch t-tests p-values,
-* effect size ranking using Cohen’s d statistic.
-
-Welch’s t-test is used instead of the standard Student t-test because it does not assume equal variances or equal sample sizes between ensembles, making it more appropriate for comparative structural datasets derived from heterogeneous protein ensembles.
-
-In addition to p-values, ProtAssess computes Cohen’s d effect size to quantify the magnitude of separation between target ensembles. This enables ranking descriptors according to their discriminatory power between cavities.
-
+* performs Welch t-tests p-values (Welch’s t-test is used instead of the standard Student t-test because it does not assume equal variances or equal sample sizes between ensembles, making it more appropriate for comparative structural datasets derived from heterogeneous protein ensembles),
+* effect size ranking using Cohen’s d statistic (Cohen’s d effect size quantifies the magnitude of separation between target ensembles, enabling ranking descriptors according to their discriminatory power).
 
 ---
 
 # Multivariate Analysis
 
-* hierarchical clustering dendrograms,
-* PCA,
-* descriptor heatmaps,
-* radar plots,
-* descriptor importance ranking.
-
-Dendrograms cluster structures according to overall cavity descriptor similarity.
-
-PCA projects multidimensional descriptor space into two dimensions, producing a scatter plot, feature loadings and explained variance outputs.
-
-Descriptor heatmaps are generated using z-score normalized descriptors and hierarchical row clustering.
-
-Radar plots summarize the mean z-score normalized descriptor profiles for each target ensemble.
-
-Descriptor importance ranks descriptors according to absolute Cohen’s d effect size.
+* hierarchical clustering dendrograms (separate structures according to overall cavity descriptor similarity),
+* PCA (projects multidimensional descriptor space into two dimensions: scatter plot, feature loadings and explained variance),
+* descriptor heatmaps (generated using z-score normalized descriptors and hierarchical row clustering),
+* radar plots (summarize the mean z-score normalized descriptor profiles for each target ensemble),
+* descriptor importance (ranks descriptors according to absolute Cohen’s d effect size).
 
 ---
 
@@ -137,6 +122,7 @@ ProtAssess exports cavity voxels as pseudoatom PDB files.
 
 Expected input structure:
 
+```text
 protassess/
 ├── target_folder1/
 │   ├── structures.pdb
@@ -152,6 +138,7 @@ protassess/
 ├── analyze_ensembles.py
 ├── cluster_pockets.py
 └── utils.py
+```
 
 Each target folder:
 
@@ -162,11 +149,7 @@ Each target folder:
 
 # Output Structure
 
-Each run automatically generates a folder:
-
-YYMMDD_target1_target2_protassess-out/
-
-containing:
+Each run automatically generates a folder *YYMMDD_target1_target2_protassess-out/* containing:
 
 * cleaned structures,
 * cavity visualization files,
@@ -182,8 +165,10 @@ containing:
 
 ##Option 1 environment:
 
+```bash
 conda env create -f environment.yml
 conda activate protassess
+```
 
 ##Option 2 manual conda install:
 
